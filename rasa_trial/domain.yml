@@ -1,113 +1,110 @@
-version: "2.0"
+version: '2.0'
 session_config:
-#   session_expiration_time: 60
+  session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
-
 intents:
 - greet
-- goodbye
-- affirm
-- deny
-- mood_great
-- mood_unhappy
-- bot_challenge
-- display_image
-- out_of_scope
-- tell_name
-
-- my_name:
-    use_entities:
-    - name
 - mobile_number:
     use_entities:
     - number
+- affirm
+- display_image
 - online_order:
     use_entities:
     - food
-
+- my_name:
+    use_entities:
+    - name
+- mood_great
+- goodbye
+- deny
+- mood_unhappy
+- bot_challenge
+- out_of_scope
+- tell_name
 entities:
+- food
 - name
 - number
-- food
-
 slots:
   name:
     type: text
+    influence_conversation: true
   number:
     type: text
+    influence_conversation: true
   food:
     type: text
-
-
+    influence_conversation: true
 responses:
-   utter_greet:
-   - text: "Hey! How are you?"
-
-   utter_welcome:
-   - text: "Welcome! I'am Assistance taking your food order"
-   utter_cheer_up:
-   - text: "Here is something to cheer you up:"
-    
-
-   utter_did_that_help:
-   - text: "Did that help you?"
-
-   utter_happy:
-   - text: "Great, carry on!"
-
-   utter_mobile_number:
-   - text: "can i have your mobile number?"
-
-   utter_enquiry_order:
-   - text: "Want to do want to order"
-
-   utter_feeback: 
-   - text: "do you want anything else!"
-
-   utter_goodbye:
-   - text: "Bye"
-
-   utter_iamabot:
-   - text: "I am a bot, powered by Rasa."
-
-   utter_name:
-   - text: My name is Robocorp.
-
-
-   utter_ask_name:
-   - text: What is your name?
-
-   utter_ask_number:
-   - text: What is your mobile number?
-
-   utter_thanks:
-   - text: Thanks for providing the values.
-   utter_my_name:
-   - text: Please! tell your name
-   utter_details_thanks:
-   - text: "Thanks for providing the given details \nName: {Name},\nMobile Number: {Mobile_number} and this is your order \nOrder: {food}. Enjoy your meal."
-
-   utter_details_images:
-   - text: "Here's your dish \nFood: {Food}"
-   utter_out_of_scope:
-   - text: Sorry, I didn't get what you said. Please rephrase what you said.
-
-
+  utter_greet:
+  - text: Hey! How are you?
+  utter_welcome:
+  - text: Welcome! I'am you Assistance taking your food order
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_mobile_number:
+  - text: can i have your mobile number?
+  utter_enquiry_order:
+  - text: Want to do want to order
+  utter_feeback:
+  - text: do you want anything else!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_name:
+  - text: My name is Robocorp.
+  utter_ask_name:
+  - text: What is your name?
+  utter_ask_number:
+  - text: What is your mobile number?
+  utter_thanks:
+  - text: Thanks for providing the values.
+  utter_my_name:
+  - text: Please! tell your name
+  utter_details_thanks:
+  - text: |-
+      Thanks for providing the given details 
+      Name: {Name},
+      Mobile Number: {Mobile_number} and this is your order 
+      Order: {food}. Enjoy your meal.
+  utter_details_images:
+  - text: |-
+      Here's your dish 
+      Food: {Food}
+  utter_out_of_scope:
+  - text: Sorry, I didn't get what you said. Please rephrase what you said.
 actions:
+- action_images
 - action_submit
 - action_video
-- action_images
 - user_details_form
-
-# forms:
-#   user_details_form:
-#     name:
-#       - type: from_entity
-#         entity: name
-#     number:
-#       - type: from_entity
-#         entity: number
-#     food:
-#       - type: from_entity
-#         entity: food
+- utter_ask_name
+- utter_details_thanks
+- utter_enquiry_order
+- utter_feeback
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_iamabot
+- utter_mobile_number
+- utter_my_name
+- utter_name
+- utter_welcome
+forms:
+  user_details_form:
+    required_slots:
+      name:
+      - type: from_entity
+        entity: name
+      number:
+      - type: from_entity
+        entity: number
+      food:
+      - type: from_entity
+        entity: food
