@@ -4,23 +4,23 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - greet
+- deny
 - mobile_number:
     use_entities:
     - number
+- out_of_scope
 - affirm
-- display_image
 - online_order:
     use_entities:
     - food
 - my_name:
     use_entities:
     - name
+- display_image
 - mood_great
 - goodbye
-- deny
 - mood_unhappy
 - bot_challenge
-- out_of_scope
 - tell_name
 entities:
 - food
@@ -56,7 +56,7 @@ responses:
   utter_goodbye:
   - text: Bye
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  - text: I am a bot, powered by Rasa. How may I help you!
   utter_name:
   - text: My name is Robocorp.
   utter_ask_name:
@@ -95,6 +95,8 @@ actions:
 - utter_mobile_number
 - utter_my_name
 - utter_name
+- utter_out_of_scope
+- utter_thanks
 - utter_welcome
 forms:
   user_details_form:

@@ -88,3 +88,37 @@ stories:
   - intent: display_image
   - action: action_images
   - intent: affirm
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_welcome
+  - intent: online_order
+    entities:
+    - food: pizza
+  - slot_was_set:
+    - food: pizza
+  - action: utter_my_name
+  - intent: my_name
+    entities:
+    - name: venkatesh
+  - slot_was_set:
+    - name: venkatesh
+  - action: utter_mobile_number
+  - intent: mobile_number
+    entities:
+    - number: '6374432269'
+  - slot_was_set:
+    - number: '6374432269'
+  - action: utter_feeback
+  - intent: deny
+  - action: utter_thanks
+  - action: action_submit
+  - intent: display_image
+  - action: action_images
+  - intent: affirm

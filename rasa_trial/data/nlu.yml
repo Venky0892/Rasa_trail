@@ -15,6 +15,7 @@ nlu:
     - goodmorning
     - goodevening
     - Hi
+    - Good morning
 - intent: goodbye
   examples: |
     - good afternoon
@@ -99,6 +100,7 @@ nlu:
     - people call me [venkat](name)
     - My name is [venkatesh](name)
     - my name is [venkatesh](name)
+    - my name is [venkatesh](name)
 - intent: mobile_number
   examples: |
     - my number is [8209829808](number)
@@ -107,6 +109,7 @@ nlu:
     - my nobile number is [8209829808](number)
     - [6374432269](number)
     - my number is [6374432269](number)
+    - [6374432269](number)
 - intent: display_image
   examples: |
     - can you show me the order
@@ -128,6 +131,7 @@ nlu:
     - I would like to order some good dessert [Chocolate soufflé](food)
     - i want [pizza](food)
     - i would like to order a [pizza](food)
+    - i would like to have a [pizza](food)
 - lookup: food
   examples: |
     - Boeuf Bourguignon
