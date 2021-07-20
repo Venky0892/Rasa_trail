@@ -1,3 +1,4 @@
+
 version: "2.0"
 
 stories:
@@ -34,12 +35,8 @@ stories:
     - intent: display_image
     - action: action_video
 
-
-- story: happy name path
+- story: new path
   steps:
-  - intent: tell_name
-  - action: utter_name
-  - action: utter_my_name
   - intent: my_name
     entities:
     - name: "venkat"
@@ -51,15 +48,43 @@ stories:
     - number: "8209829808"
   - slot_was_set:
       - number: "8209829808"
-
   - action: utter_enquiry_order
   - intent: online_order
     entities:
       - name: "chicken"
   - slot_was_set:
-      - name: "salad"
-  - action: utter_feeback
-  - intent: deny
+      - name: "chicken"
+  - action: action_submit
   - action: utter_details_thanks
-  - action: action_images
+  - slot_was_set:
+    - requested_slot: slot_name
 
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_welcome
+  - intent: online_order
+    entities:
+    - food: pizza
+  - slot_was_set:
+    - food: pizza
+  - action: utter_my_name
+  - intent: my_name
+    entities:
+    - name: venkatesh
+  - slot_was_set:
+    - name: venkatesh
+  - action: utter_mobile_number
+  - intent: mobile_number
+    entities:
+    - number: '6374432269'
+  - slot_was_set:
+    - number: '6374432269'
+  - action: utter_feeback
+  - intent: display_image
+  - action: action_submit
+  - intent: display_image
+  - action: action_images
+  - intent: affirm
